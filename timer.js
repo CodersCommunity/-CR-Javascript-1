@@ -1,13 +1,13 @@
-(function() {
+(function () {
 	'use strict';
 
-	var CLOCK_ELEMENT = document.getElementById('zegar');
-	var UPDATE_FRAQUENCY = 1000;
-	var FORMATTER = new Intl.DateTimeFormat('pl');
+	var clockElement = document.getElementById( 'zegar' );
+	var updateFraquency = 1000;
+	var formatter = new Intl.DateTimeFormat( 'pl' );
 
-	function getDateAsText() {
+	function getDateAsText () {
 		var now = new Date();
-		var date = FORMATTER.format(new Date());
+		var date = formatter.format( new Date() );
 		var time = now.toLocaleTimeString();
 
 		var result = date + ' | ' + time;
@@ -15,10 +15,10 @@
 		return result;
 	};
 
-	function updateClock() {
-		CLOCK_ELEMENT.innerHTML = getDateAsText();
+	function updateClock () {
+		clockElement.innerHTML = getDateAsText();
 
-		setTimeout(updateClock, UPDATE_FRAQUENCY);
+		setTimeout( updateClock, updateFraquency );
 	};
 
 	updateClock();
