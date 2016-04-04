@@ -1,25 +1,31 @@
-(function() {
+// IIFE is an antipattern in ES6: http://exploringjs.com/es6/ch_first-steps.html#_from-iifes-to-blocks.
+{
 	'use strict';
 
-	var clockElement = document.querySelector('#zegar')
-		, UPDATE_FRAQUENCY_IN_MS = 1000
-	;
+	// Every variable which value won't be changed, should be
+	// declared as a constant
+	// http://exploringjs.com/es6/ch_first-steps.html#_from-var-to-letconst
+	const clockElement = document.getElementById( 'zegar' );
+	const updateFrequency = 1000;
 
-	function getDateAsText() {
-		var now = new Date()
-			, date = now.toLocaleDateString()
-			, time = now.toLocaleTimeString()
-			, result = date + ' | ' + time;
-		;
+	// Function declarations inside blocks could be replaced by arrow functions.
+	// http://exploringjs.com/es6/ch_first-steps.html#_from-function-expressions-to-arrow-functions
+	const getDateAsText = () => {
+		const now = new Date()
+		const date = now.toLocaleDateString();
+		const time = now.toLocaleTimeString();
+		// If there's a substition in a string,
+		// templates literals could be used.
+		const result = `${date} | ${time}`;
 
 		return result;
-	};
+	}
 
-	function updateClock() {
+	const updateClock = () => {
 		clockElement.innerHTML = getDateAsText();
 		
-		setTimeout(updateClock, UPDATE_FRAQUENCY_IN_MS);
-	};
+		setTimeout( updateClock, updateFrequency );
+	}
 
 	updateClock();
-})();
+};
