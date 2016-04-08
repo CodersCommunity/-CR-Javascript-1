@@ -7,7 +7,7 @@
 
 	function getDateAsText () {
 		var now = new Date();
-		var date = formatter.format( new Date() );
+		var date = formatter.format( now );
 		var time = now.toLocaleTimeString();
 
 		var result = date + ' | ' + time;
