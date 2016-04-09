@@ -1,24 +1,24 @@
-(function() {
+(function () {
 	'use strict';
 
-	var clockElement = document.querySelector('#zegar')
-		, UPDATE_FRAQUENCY_IN_MS = 1000
-	;
+	var clockElement = document.getElementById( 'zegar' );
+	var updateFraquency = 1000;
+	var formatter = new Intl.DateTimeFormat( 'pl' );
 
-	function getDateAsText() {
-		var now = new Date()
-			, date = now.toLocaleDateString()
-			, time = now.toLocaleTimeString()
-			, result = date + ' | ' + time;
-		;
+	function getDateAsText () {
+		var now = new Date();
+		var date = formatter.format( now );
+		var time = now.toLocaleTimeString();
+
+		var result = date + ' | ' + time;
 
 		return result;
 	};
 
-	function updateClock() {
+	function updateClock () {
 		clockElement.innerHTML = getDateAsText();
-		
-		setTimeout(updateClock, UPDATE_FRAQUENCY_IN_MS);
+
+		setTimeout( updateClock, updateFraquency );
 	};
 
 	updateClock();
