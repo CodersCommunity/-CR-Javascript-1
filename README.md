@@ -1,5 +1,11 @@
 # CodeReview-JS-01
-CodeReview materiału z pierwszego odcinka kursu javascript.
+CodeReview materiału z pierwszego odcinka kursu javascript. 
+
+Film: [Klik](https://www.youtube.com/watch?v=OcwON22ctYc) 
+Temat na forum: [Klik](http://forum.pasja-informatyki.pl/125791/cr-javascript-%231-skrypty-po-stronie-klienta-pierwszy-projekt-wiedza-podstawowa) 
+
+---
+
 ### Zmiany
 #### HTML
 Akurat tutaj wiele się nie zmieniło, usunięty został atrybut type z tagu script, który został przeniesiony na koniec tagu body. Dzięki wykonaniu tego działania, z poziomu skryptu możemy bezproblemowo odnieść się do elementów dokumentu, bez podpinania się pod zdarzenie załadowania strony (co miałoby miejsce, gdyby został osiedlony w tagu head). Atrybut onload został wyrzucony, alternatywa została opisana wyżej.
